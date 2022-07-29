@@ -10,7 +10,7 @@ Provide appropriate endpoints on Backend, for Frontend to consume
 
 Add advanced features like file upload and pagination
 
-Make your Application more secure by implementing Users, Authentication as well as Authorization
+Make Application more secure by implementing Users, Authentication as well as Authorization
 
 Handle Errors gracefully
 
