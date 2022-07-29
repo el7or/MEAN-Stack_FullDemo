@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (submit)="onSaveRole(roleForm)" #roleForm="ngForm" *ngIf="!isLoading">
+    <mat-form-field>
+      <input matInput type="text" name="name" [ngModel]="role?.name" required minlength="3" placeholder="Role Name"
+        #name="ngModel">
+      <mat-error *ngIf="name.invalid">Please enter a role name.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput rows="4" name="description" [ngModel]="role?.description" required
+        placeholder="Role Description" #description="ngModel"></textarea>
+      <mat-error *ngIf="description.invalid">Please enter a role description.</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">Save Role</button>
+    <button mat-raised-button type="button" (click)="location.back()">Cancel</button>
+  </form>
+</mat-card>

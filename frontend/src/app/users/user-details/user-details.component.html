@@ -1,0 +1,9 @@
+<mat-expansion-panel *ngIf="currentUser" expanded="true">
+  <mat-expansion-panel-header>
+    {{ currentUser.name }}
+  </mat-expansion-panel-header>
+  <div class="post-image">
+    <img [src]="currentUser.imageUrl" [alt]="currentUser.name">
+  </div>
+  <p>{{ currentUser.description }}</p>
+</mat-expansion-panel>

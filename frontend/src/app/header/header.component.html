@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <a mat-button [routerLink]="['/']" routerLinkActive="mat-accent" [routerLinkActiveOptions]="{ exact: true }">
+      Home
+    </a>
+    <a *ngIf="userIsAuthenticated" mat-icon-button [routerLink]="['/roles']" routerLinkActive="mat-accent">
+      Roles
+    </a>
+    <a *ngIf="userIsAuthenticated" mat-button [routerLink]="['/users']" routerLinkActive="mat-accent">
+      Users
+    </a>
+    <a *ngIf="userIsAuthenticated" mat-button [routerLink]="['/chat']" routerLinkActive="mat-accent">
+      Chat
+    </a>
+    <span class="spacer"></span>
+    <a *ngIf="!userIsAuthenticated" mat-button routerLink="/auth/login" routerLinkActive="mat-accent">Login</a>
+    <a *ngIf="!userIsAuthenticated" mat-button routerLink="/auth/signup" routerLinkActive="mat-accent">Signup</a>
+    <button *ngIf="userIsAuthenticated" mat-button (click)="onLogout()">Logout</button>
+  </mat-toolbar-row>
+</mat-toolbar>

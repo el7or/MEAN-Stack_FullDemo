@@ -1,0 +1,19 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<ng-container *ngIf="!isLoading">
+  <a mat-raised-button color="primary" [routerLink]="['/roles/create']" class="create">Add Role</a>
+  <mat-accordion multi="true" *ngIf="roles.length > 0">
+    <mat-expansion-panel *ngFor="let role of roles">
+      <mat-expansion-panel-header>
+        {{ role.name }}
+      </mat-expansion-panel-header>
+      <p>{{ role.description }}</p>
+      <mat-action-row>
+        <a mat-button color="primary" [routerLink]="['/roles/edit', role._id]">EDIT</a>
+        <button *ngIf="isUserAdmin" mat-button color="warn" (click)="onDelete(role._id!)">DELETE</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <mat-paginator [length]="totalRoles" [pageSize]="rolesPerPage" [pageIndex]="currentPage - 1"
+    [pageSizeOptions]="pageSizeOptions" (page)="onChangedPage($event)" *ngIf="roles.length > 0"></mat-paginator>
+  <p class="info-text mat-body-1" *ngIf="roles.length <= 0">No roles added yet!</p>
+</ng-container>
