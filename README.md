@@ -15,3 +15,5 @@ Make your Application more secure by implementing Users, Authentication as well 
 Handle Errors gracefully
 
 Using Socket.io for realtime updates
+
+Add Swagger for Api Documentaion
